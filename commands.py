@@ -31,13 +31,13 @@ def cd(path):
         return f"Directory has been changed to {os.getcwd()}"
     except Exception as e:
         return str(e)
-    
-# def rmdir(path):
-#     try:
-#         os.rmdir(path)
-#         return f"Directory has been deleted"
-#     except Exception as e:
-#         return str(e)
+
+def rmdir(path):
+    try:
+        os.rmdir(path)
+        return f"Directory has been deleted"
+    except Exception as e:
+        return str(e)
 
 def clear_terminal():
     return ""
@@ -88,6 +88,9 @@ class TerminalApp(tk.Tk):
         elif command_text.startswith("cd"):
             path = command_text[3:]
             output = cd(path.strip())
+        elif command_text.startswith("rmdir"):
+            path = command_text[6:]
+            output = rmdir(path.strip())
         elif command_text == "clear":
             self.clear_output()
             return
