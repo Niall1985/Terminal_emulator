@@ -15,21 +15,18 @@ To run the terminal emulator, ensure you have Python installed on your system. Y
 
 1. Clone the repository or download the source code:
 ``` bash
-copy code
 git clone <repository-url>
 cd terminal-emulator
 ``` 
 
 2. Install the required dependencies:
 ``` bash
-Copy code
 pip install tk
 ```
 
 ## Usage
 To start the terminal emulator, run the following command:
 ```bash
-Copy code
 python terminal_emulator.py
 ```
 
@@ -45,44 +42,37 @@ python terminal_emulator.py
 ### Example
 1. List directories:
 ```bash
-Copy code
 ls
 ```
 
 2. Print working directory:
 ```bash
-Copy code
 pwd
 ```
 3. Make a new directory:
 ```bash
-Copy code
 mkdir new_directory
 ```
 
 4. Change directory:
 
 ```bash
-Copy code
 cd new_directory
 ```
 
 5. Remove directory:
 ```bash
-Copy code
 rmdir new_directory
 ```
 
 6. Clear terminal:
 ```bash
-Copy code
 clear
 ```
 
 7. Quit application:
 
 ```bash
-Copy code
 :q!
 ```
 
