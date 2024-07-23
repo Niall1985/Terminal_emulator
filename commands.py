@@ -39,6 +39,29 @@ def rmdir(path):
     except Exception as e:
         return str(e)
 
+def touch(path):
+    try:
+        with open(path, 'w') as f:
+            pass
+        return "File has been created"
+    except Exception as e:
+        return str(e)
+
+def write(path, content):
+    try:
+        with open(path, 'a') as f:
+            f.write(content + "\n")
+        return "Content written to file"
+    except Exception as e:
+        return str(e)
+
+def rm(path):
+    try:
+        os.remove(path)
+        return "File has been deleted"
+    except Exception as e:
+        return str(e)
+
 def clear_terminal():
     return ""
 
@@ -91,6 +114,19 @@ class TerminalApp(tk.Tk):
         elif command_text.startswith("rmdir"):
             path = command_text[6:]
             output = rmdir(path.strip())
+        elif command_text.startswith("touch"):
+            path = command_text[6:]
+            output = touch(path.strip())
+        elif command_text.startswith("write"):
+            parts = command_text.split(" ", 2)
+            if len(parts) == 3:
+                path, content = parts[1], parts[2]
+                output = write(path.strip(), content.strip())
+            else:
+                output = "Usage: write <path> <content>"
+        elif command_text.startswith("rm"):
+            path = command_text[3:]
+            output = rm(path.strip())
         elif command_text == "clear":
             self.clear_output()
             return
@@ -129,7 +165,7 @@ class TerminalApp(tk.Tk):
         self.output_area.config(state=tk.NORMAL)
         self.output_area.delete(1.0, tk.END)
         self.insert_prompt()
-        self.output_area.config(state=tk.DISABLED)
+        self.output_area.config(state=tk.NORMAL)
 
 if __name__ == "__main__":
     app = TerminalApp()
