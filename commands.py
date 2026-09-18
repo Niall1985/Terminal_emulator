@@ -130,7 +130,7 @@ class TerminalApp(tk.Tk):
         elif command_text == "clear":
             self.clear_output()
             return
-        elif command_text == ":q!":
+        elif command_text == "exit".lower():
             quit_app()
         else:
             output = "Command not found: " + command_text
